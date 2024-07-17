@@ -3,7 +3,7 @@
 
 # I named mine "DEMO and AOD Clean_7.3.24.xlsx"
 
-Data_file_name = "DEMO and AOD Clean_7.3.24.xlsx"
+Data_file_name = "DEMO and AOD Clean_7.17.24.xlsx"
 
 # Step 2 - Install Packages (if needed) and Load Libraries  ------------------------
 
@@ -69,6 +69,12 @@ df_20<-df_20[,-c(1)]
 df_21<-df_21[,-c(1)]
 df_22<-df_22[,-c(1)]
 
+df_list <- list(df_00_04, df_06, df_07, df_08, df_09, df_10, df_11, df_12, df_13,
+                df_14, df_15, df_16, df_17, df_18, df_19, df_20, df_21, df_22)
+for(df in df_list){
+  print(dim(df))
+  readline("Pres Enter to Continue")
+}
 
 # Update Column Names
 column_names<-colnames(df_22)
@@ -137,9 +143,6 @@ Age_col<-list("Age")
 data<-merged_df
 colnames(data)
 
-# Remove Reci_MHS_Prof
-
-data<-dplyr::select(data, -Reci_MHS_Prof)
 
 colnames(data)
 dim(data)
@@ -152,5 +155,5 @@ dim(data)
 ############
 
 # Selecting only demographics and the newly cleaned vars
-data<-data[,c(1:31, 41:49)]
+# data<-data[,c(1:31, 41:49)]
 colnames(data)
